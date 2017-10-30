@@ -17,6 +17,7 @@ from helper.score import score
 from helper.silence_phones import silence_phones
 from helper.spk2gender import spk2gender
 from helper.steps import steps
+from helper.text import text
 from helper.utils import utils
 from helper.utt2spk import utt2spk
 from helper.wav2scp import wav2scp
@@ -39,6 +40,7 @@ def run(context):
     silence_phones(context).run()
     spk2gender(context).run()
     steps(context).run()
+    text(context).run()
     utils(context).run()
     utt2spk(context).run()
     wav2scp(context).run()

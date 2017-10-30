@@ -22,6 +22,7 @@ data:
     silence_phones: {src: config/dict/silence_phones.txt, tgt: local/dict/silence_phones.txt}
     spk2gender: spk2gender
     steps: {src: wsj/s5/steps, tgt: steps}
+    text: text
     utils: {src: wsj/s5/utils, tgt: utils}
     utt2spk: utt2spk
     wav2scp: wav.scp
