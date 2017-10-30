@@ -65,41 +65,24 @@ class audio(object):
         """
         Split train and test data.
         """
-        s_dir = '/work/data' 
-        t_root = '/work/kaldi/egs/digits/digits_audio' 
+        s_dir = self.context['audio']['source']['dir']
+        t_root = '{0}/{1}'.format(self.context['egs']['root'], self.context['audio']['target']['dir'])
         stn = self.map(s_dir)
         #print(stn)
         # Train data
-        data_type = 'train'
-        for e in range(9):
-            for speaker, src, tgtn in stn:
-                if speaker == e: 
-                    tgt = "{0}/{1}/{2}".format(t_root, data_type, tgtn)
-                    tgt_dir = os.path.dirname(tgt)
-                    if not os.path.exists(tgt_dir):
-                        os.makedirs(tgt_dir)
-                    #print(speaker, src, tgt)
-                    self.m4a_to_wav(src, tgt)
-        # Test data.
-        data_type = 'test'
-        for e in [9]:
-            for speaker, src, tgtn in stn:
-                if speaker == e: 
-                    tgt = "{0}/{1}/{2}".format(t_root, data_type, tgtn)
-                    tgt_dir = os.path.dirname(tgt)
-                    if not os.path.exists(tgt_dir):
-                        os.makedirs(tgt_dir)
-                    #print(speaker, src, tgt)
-                    self.m4a_to_wav(src, tgt)
-
+        for k, v in self.context['data']['split'].items():
+            for e in v:
+                for speaker, src, tgtn in stn:
+                    if speaker == e: 
+                        tgt = "{0}/{1}/{2}".format(t_root, k, tgtn)
+                        tgt_dir = os.path.dirname(tgt)
+                        if not os.path.exists(tgt_dir):
+                            os.makedirs(tgt_dir)
+                        #print(speaker, src, tgt)
+                        self.m4a_to_wav(src, tgt)
 
     def run(self):
         """
         """
         self.transform()
- 
-if __name__ == '__main__':
-    name = "context.yaml"
-    context = yaml.load(open(name))
-    a = audio(context)
-    a.run()
+
