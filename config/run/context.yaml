@@ -9,12 +9,20 @@ data:
     train: [0, 1, 2, 3, 4, 5, 6, 7, 8]
     test: [9]
   text:
+    cmd: {src: config/cmd/cmd.sh, tgt: cmd.sh}
     corpus: local/corpus.txt
+    decode: {src: config/conf/decode.config, tgt: conf/decode.config}
     lexicon: {src: config/dict/lexicon.txt, tgt: local/dict/lexicon.txt}
+    mfcc: {src: config/conf/mfcc.conf, tgt: conf/mfcc.conf}
     nonsilence_phones: {src: config/dict/nonsilence_phones.txt, tgt: local/dict/nonsilence_phones.txt}
     optional_silence: {src: config/dict/optional_silence.txt, tgt: local/dict/optional_silence.txt}
+    pathscript: {src: config/cmd/path.sh, tgt: path.sh}
+    runscript: {src: config/cmd/run.sh, tgt: run.sh}
+    score: {src: voxforge/s5/local/score.sh, tgt: local/score.sh}
     silence_phones: {src: config/dict/silence_phones.txt, tgt: local/dict/silence_phones.txt}
     spk2gender: spk2gender
+    steps: {src: wsj/s5/steps, tgt: steps}
+    utils: {src: wsj/s5/utils, tgt: utils}
     utt2spk: utt2spk
     wav2scp: wav.scp
   word: [zero, one, two, three, four, five, six, seven, eight, nine]

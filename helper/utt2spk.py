@@ -22,5 +22,5 @@ class utt2spk(object):
             for e in v:
                 file_list = glob.glob('{0}/*/1_{1}*'.format(src, e))
                 #print(file_list)
-                [f.write("{0} {1}\n".format(os.path.basename(file).split('.')[0], e)) for file in sorted(file_list)]
+                [f.write("{0} {1}\n".format("{0}_{1}".format(e, os.path.basename(file).split('.')[0]), e)) for file in sorted(file_list)]
 
