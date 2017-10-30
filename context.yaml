@@ -1,0 +1,12 @@
+audio:
+  source:
+    dir: /work/data
+  target:
+    dir: digits_audio
+    split:
+      train: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+      test: [9]
+data:
+  dir: data
+egs:
+  root: /work/kaldi/egs/digits
