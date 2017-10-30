@@ -10,6 +10,7 @@ data:
     test: [9]
   text:
     spk2gender: spk2gender
+    utt2spk: utt2spk
     wav2scp: wav.scp
 egs:
   root: /work/kaldi/egs/digits
