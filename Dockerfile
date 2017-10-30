@@ -5,3 +5,4 @@ RUN apt-get install -y autoconf automake bzip2 faad g++ gawk git lame libatlas3-
 RUN ln -s /usr/bin/python2.7 /usr/bin/python2
 RUN cd /work; git clone https://github.com/kaldi-asr/kaldi.git kaldi --origin upstream
 RUN pip3 install virtualenv
+# Test
